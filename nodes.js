@@ -3,11 +3,9 @@
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 exports.__esModule = true;
-exports.PageNode = exports.ShopPolicyNode = exports.ProductVariantNode = exports.ProductOptionNode = exports.ProductMetafieldNode = exports.ProductNode = exports.ProductTypeNode = exports.CommentNode = exports.CollectionNode = exports.BlogNode = exports.ArticleNode = void 0;
+exports.PageNode = exports.ShopPolicyNode = exports.ProductVariantNode = exports.ProductOptionNode = exports.ProductMetafieldNode = exports.ProductNode = exports.CommentNode = exports.CollectionNode = exports.BlogNode = exports.ArticleNode = void 0;
 
 var _gatsbyNodeHelpers = _interopRequireDefault(require("gatsby-node-helpers"));
-
-var _fp = require("lodash/fp");
 
 var _pIteration = require("p-iteration");
 
@@ -25,7 +23,6 @@ const PRODUCT_OPTION = `ProductOption`;
 const PRODUCT_VARIANT = `ProductVariant`;
 const PRODUCT_METAFIELD = `ProductMetafield`;
 const SHOP_POLICY = `ShopPolicy`;
-const PRODUCT_TYPE = `ProductType`;
 const PAGE = `Page`;
 const {
   createNodeFactory,
@@ -110,13 +107,6 @@ exports.CollectionNode = CollectionNode;
 const CommentNode = _imageArgs => createNodeFactory(COMMENT);
 
 exports.CommentNode = CommentNode;
-
-const ProductTypeNode = imageArgs => rawNode => createNodeFactory(PRODUCT_TYPE)({
-  id: (0, _fp.camelCase)(rawNode),
-  name: rawNode
-});
-
-exports.ProductTypeNode = ProductTypeNode;
 
 const ProductNode = imageArgs => createNodeFactory(PRODUCT, async node => {
   if (node.variants) {

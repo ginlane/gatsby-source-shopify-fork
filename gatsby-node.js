@@ -62,7 +62,7 @@ const sourceNodes = async ({
     console.time(msg);
     await Promise.all([createNodes(`articles`, _queries.ARTICLES_QUERY, _nodes.ArticleNode, args, async x => {
       if (x.comments) await (0, _pIteration.forEach)(x.comments.edges, async edge => createNode((await (0, _nodes.CommentNode)(imageArgs)(edge.node))));
-    }), createNodes(`blogs`, _queries.BLOGS_QUERY, _nodes.BlogNode, args), createNodes(`collections`, _queries.COLLECTIONS_QUERY, _nodes.CollectionNode, args), createNodes(`productTypes`, _queries.PRODUCT_TYPES_QUERY, _nodes.ProductTypeNode, args), createPageNodes(`pages`, _queries.PAGES_QUERY, _nodes.PageNode, args), createNodes(`products`, _queries.PRODUCTS_QUERY, _nodes.ProductNode, args, async x => {
+    }), createNodes(`blogs`, _queries.BLOGS_QUERY, _nodes.BlogNode, args), createNodes(`collections`, _queries.COLLECTIONS_QUERY, _nodes.CollectionNode, args), createPageNodes(`pages`, _queries.PAGES_QUERY, _nodes.PageNode, args), createNodes(`products`, _queries.PRODUCTS_QUERY, _nodes.ProductNode, args, async x => {
       if (x.variants) await (0, _pIteration.forEach)(x.variants.edges, async edge => createNode((await (0, _nodes.ProductVariantNode)(imageArgs)(edge.node))));
       if (x.metafields) await (0, _pIteration.forEach)(x.metafields.edges, async edge => createNode((await (0, _nodes.ProductMetafieldNode)(imageArgs)(edge.node))));
       if (x.options) await (0, _pIteration.forEach)(x.options, async option => createNode((await (0, _nodes.ProductOptionNode)(imageArgs)(option))));

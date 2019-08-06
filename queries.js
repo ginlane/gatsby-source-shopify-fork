@@ -1,7 +1,7 @@
 "use strict";
 
 exports.__esModule = true;
-exports.PAGES_QUERY = exports.PRODUCT_TYPES_QUERY = exports.SHOP_POLICIES_QUERY = exports.PRODUCTS_QUERY = exports.COLLECTIONS_QUERY = exports.BLOGS_QUERY = exports.ARTICLES_QUERY = void 0;
+exports.PAGES_QUERY = exports.SHOP_POLICIES_QUERY = exports.PRODUCTS_QUERY = exports.COLLECTIONS_QUERY = exports.BLOGS_QUERY = exports.ARTICLES_QUERY = void 0;
 const ARTICLES_QUERY = `
   query GetArticles($first: Int!, $after: String) {
     shop {
@@ -225,22 +225,6 @@ const SHOP_POLICIES_QUERY = `
   }
 `;
 exports.SHOP_POLICIES_QUERY = SHOP_POLICIES_QUERY;
-const PRODUCT_TYPES_QUERY = `
-  query GetProductTypes($first: Int!) {
-    shop {
-      productTypes(first: $first) {
-        pageInfo {
-          hasNextPage
-        }
-        edges {
-          cursor
-          node
-        }
-      }
-    }
-  }
-`;
-exports.PRODUCT_TYPES_QUERY = PRODUCT_TYPES_QUERY;
 const PAGES_QUERY = `
   query GetPages($first: Int!, $after: String) {
     pages(first: $first, after: $after) {
